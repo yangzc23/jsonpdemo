@@ -1,0 +1,40 @@
+<!--<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >-->
+
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         id="WebApp_ID" version="3.0">
+  <display-name>Archetype Created Web Application</display-name>
+
+    <!-- spring配置文件 -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:spring/applicationContext.xml</param-value>
+    </context-param>
+
+    <!-- 在启动Web容器时，自动装配Spring的配置文件 -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <servlet>
+        <!--名称 -->
+        <servlet-name>springmvc</servlet-name>
+        <!-- Servlet类 -->
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <!--SpringMVC配置参数文件的位置 -->
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:springmvc/springmvc.xml</param-value>
+        </init-param>
+        <!-- 启动顺序，数字越小，启动越早 -->
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <!--所有请求都会被springmvc拦截 -->
+    <servlet-mapping>
+        <servlet-name>springmvc</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+</web-app>

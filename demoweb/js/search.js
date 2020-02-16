@@ -8,7 +8,7 @@ $(function(){
 			}
 			$.ajax(
 				{ 
-					url: "http://localhost:8080/hello/detail/" + kw, 
+					url: "http://192.168.2.105:8080/hello/detail/" + kw, 
 					type: "GET",
 					dataType: "jsonp",
 					success: function(data){

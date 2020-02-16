@@ -12,8 +12,21 @@ $(function(){
 					type: "GET",
 					dataType: "jsonp",
 					success: function(data){
+						try {
+						      var input = eval('(' + JSON.stringify(data) + ')');
+						    }
+						    catch (error) {
+						      return alert("Cannot eval JSON: " + error);
+						    }
+						    var options = {
+						      collapsed: true,
+						      rootCollapsable: true,
+						      withQuotes: false,
+						      withLinks: true
+						    };
+						    $('#result').jsonViewer(input, options);
 						//alert(data.sname);
-						$("#result").text(JSON.stringify(data));
+						//$("#result").text(JSON.stringify(data,null,2));
 					},
 				});
 		}

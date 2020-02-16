@@ -3,13 +3,24 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>首页</title>
+		<link rel="stylesheet" type="text/css" href="css/json-viewer.css"/>
+		<style type="text/css">
+			body {
+			  margin: 0 100px;
+			  font-family: sans-serif;
+			}
+			pre#result {
+			  border: 1px solid #aaa;
+			}
+		</style>
 		<script src="js/jquery-3.4.1.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/json-viewer.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/search.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
 		<h1>欢迎使用搜索功能</h1>
 		<input id="keyword" name="keyword" type="text" placeholder="请输入学号"/>
 		<input id="search" type="button" value="搜索"/>
-		<div id="result" style="margin: 30px;"></div>
+		<pre id="result"></pre>
 	</body>
 </html>
